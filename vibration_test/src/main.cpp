@@ -1,5 +1,6 @@
-#include "MPU6050.h"
-#include "Wire.h"
+#include <Arduino.h>
+#include <MPU6050.h>
+#include <Wire.h>
 
 MPU6050 accelerometer;
 int16_t ax;
@@ -28,9 +29,7 @@ void setup(){
   delay(100);
 }
 
-void loop()
-{
-  
+void loop(){
   accelerometer.getAcceleration(&ax, &ay, &az);
   
   ac = (abs(ax) + abs(ay) + abs(az));
@@ -61,5 +60,4 @@ void loop()
     amp_avg = 0;
     timer60s = millis();
     }
-  
 }
